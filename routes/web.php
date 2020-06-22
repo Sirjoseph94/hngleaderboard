@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/','InternsController@index');
+Route::post('/internSave', 'InternsController@save_interns');
