@@ -15,11 +15,10 @@ class CreateInternsTable extends Migration
     {
         Schema::create('interns', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('slack_username')->unique();
-            $table->string('path');
-            $table->float('points');
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('slack_username')->nullable();
+            $table->double('points')->nullable();
             $table->timestamps();
         });
     }
