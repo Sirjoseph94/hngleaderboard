@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Excel;
 use App\Imports\InternsImport;
+use App\Intern;
 
 class InternsController extends Controller
 {
@@ -34,7 +35,24 @@ class InternsController extends Controller
 	   		return redirect('/')->with("success", "Interns added successfully");  			
    		}
    		elseif($extension == "json"){
-   			return "JSON file added";
+   			$data = file_get_contents($request->file('interns_file'));
+
+   			$data = json_decode($data);
+
+   			//loop through entries and add them to table
+   			for($i=0; $i < count($data); $i++){
+   				//create intern object
+   				$intern = new Intern();
+
+   				$intern->name = $data[$i]->full_name;
+   				$intern->email = $data[$i]->email;
+   				$intern->slack_username = $data[$i]->username;
+   				$intern->points = $data[$i]->total_points;
+
+   				$intern->save();
+   			}
+
+   			return redirect('/')->with("success", "Interns added successfully");  
    		}
 
    		else{
