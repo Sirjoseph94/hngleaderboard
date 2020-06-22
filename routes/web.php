@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','InternsController@index');
 Route::post('/internSave', 'InternsController@save_interns');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

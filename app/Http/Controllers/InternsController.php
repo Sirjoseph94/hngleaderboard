@@ -9,9 +9,15 @@ use App\Intern;
 
 class InternsController extends Controller
 {
-   public function index(){
-   	return view('home');
-   }
+
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+	public function index(){
+	   	return view('home');
+	}
 
    public function save_interns(Request $request){
    	$this->validate($request,[
