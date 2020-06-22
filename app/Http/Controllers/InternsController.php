@@ -15,9 +15,6 @@ class InternsController extends Controller
         $this->middleware('auth');
     }
 
-	public function index(){
-	   	return view('home');
-	}
 
    public function save_interns(Request $request){
    	$this->validate($request,[
@@ -58,11 +55,11 @@ class InternsController extends Controller
    				$intern->save();
    			}
 
-   			return redirect('/')->with("success", "Interns added successfully");  
+   			return redirect('/home')->with("success", "Interns added successfully");  
    		}
 
    		else{
-   			return "Invalid format. Only CSV and JSON accepted";
+   			return redirect('/home')->with("error", "Invalid format. Only CSV and JSON accepted") ;
    		}
 
    	}
