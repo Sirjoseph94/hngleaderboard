@@ -33,8 +33,12 @@ class InternsController extends Controller
 	   		Excel::import(new InternsImport, request()->file('interns_file'));
 	   		return redirect('/')->with("success", "Interns added successfully");  			
    		}
+   		elseif($extension == "json"){
+   			return "JSON file added";
+   		}
+
    		else{
-   			return "Not expected format";
+   			return "Invalid format. Only CSV and JSON accepted";
    		}
 
    	}
