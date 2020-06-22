@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Excel;
+use App\Imports\InternsImport;
 
 class InternsController extends Controller
 {
@@ -16,12 +18,26 @@ class InternsController extends Controller
    	]);
 
    	if($request->hasFile('interns_file')){
-   		//check if file is csv
-   		$content = file_get_contents($request->interns_file);
+   		//get filename with extension
+        $filenameWithExt = $request->file('interns_file')->getClientOriginalName();
 
-   		$data = json_decode($content, true);
 
-   		return $data->name;
+        //ulpoad image
+        $path = $request->file('interns_file')->storeAs('public/temp', $filenameWithExt);
+
+   		//check if file is xlsx or csc
+   		$fileparts = pathinfo($path);
+   		$extension = $fileparts["extension"];
+   		if($extension == "xlsx" OR $extension == "csv")
+   		{
+	   		Excel::import(new InternsImport, request()->file('interns_file'));
+	   		return redirect('/')->with("success", "Interns added successfully");  			
+   		}
+   		else{
+   			return "Not expected format";
+   		}
+
    	}
+
    }
 }
