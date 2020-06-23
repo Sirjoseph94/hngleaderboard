@@ -1,138 +1,93 @@
 @extends('layouts.base')
 @section('content')
-<div class="parent">
-        <div class="container">
-            <div class="leaderboard-text">Leaderboard</div>
-           <div class="favorites-container">
-            <div class="favorites">
-                    <div class="fav-img">
-                        <img src="/home/hez-daniel/Desktop/Hngtask/bok.jpg" alt="" class="profile-image">
-                    </div>
-                    <div class="name">Kosi Peter</div>
-                    <div class="track">Devops</div>
-                    <div class="score">15</div>
-                    <div class="star-icon">
-                       <img src="" alt="">
-                       <img src="" alt="">
-                        </div>
-                    </div>
+<div class="jumbotron">
+  <h1 class="display-4">HNG Leaderboard</h1>
+  <hr class="my-4">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="{{ asset('images/user.jpg')}}" class=" fit card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Name: {{ $top[0]->name }}</h5>
+                <h5 class="card-title">Slack: {{ $top[0]->slack_username }}</h5>
+                <h5 class="card-title">Points: {{ $top[0]->points }}</h5>
+              </div>
+            </div>         
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="{{ asset('images/user2.jpg')}}" class="fit card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Name: {{ $top[1]->name }}</h5>
+                <h5 class="card-title">Slack: {{ $top[1]->slack_username }}</h5>
+                <h5 class="card-title">Points: {{ $top[1]->points }}</h5>
+              </div>
+            </div>         
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="{{ asset('images/user3.jpg')}}" class="fit card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Name: {{ $top[2]->name }}</h5>
+                <h5 class="card-title">Slack: {{ $top[2]->slack_username }}</h5>
+                <h5 class="card-title">Points: {{ $top[2]->points }}</h5>
+              </div>
+            </div>         
+          </div>
 
-
-                    <div class="favorites">
-                        <div class="fav-img">
-                            <img src="/home/hez-daniel/Desktop/projects/bok.jpg" alt="" class="profile-image">
-                        </div>
-                        <div class="name">Daniel Emerald</div>
-                        <div class="track">Devops</div>
-                        <div class="score">20</div>
-                        <div class="star-icon">
-                           <img src="" alt="">
-                           <img src="" alt="">
-                            </div>
-                        </div>
-
-
-                        <div class="favorites">
-                            <div class="fav-img">
-                                <img src="/home/hez-daniel/Desktop/bok.jpg" alt="" class="profile-image">
-                            </div>
-                            <div class="name">Kosi Peter</div>
-                            <div class="track">Devops</div>
-                            <div class="score">36</div>
-                            <div class="star-icon">
-                               <img src="" alt="">
-                               <img src="" alt="">
-                                </div>
-                            </div>
-
-
-                        </div>
-                </div>
-                <div class="track-button">
-                    <button>All</button>
-                    <button>UI/UX</button>
-                    <button>Backend</button>
-                    <button>Frontend</button>
-                </div>
-
-       <div class="interns-container">         
-        <div class="interns">
-            <div class="intern-image-container">
-                <img src="" alt="" class="intern-image">
-            </div>
-
-            <div class="intern-data">
-                <div class="intern-name">Cynthia Okere</div>
-                <div class="intern-username">@kosiben</div>
-            </div>
-
-            <div class="intern-score">
-                <div class="icon">
-                    <img src="" alt="">
-                </div>
-                <div class="score">555</div>
-            </div>
-        </div>
-
-
-        <div class="interns">
-            <div class="intern-image-container">
-                <img src="/home/hez-daniel/Desktop/bok.jpg" alt="" class="intern-image">
-            </div>
-
-            <div class="intern-data">
-                <div class="intern-name">Cynthia Okere</div>
-                <div class="intern-username">@kosiben</div>
-            </div>
-
-            <div class="intern-score">
-                <div class="icon">
-                    <img src="" alt="">
-                </div>
-                <div class="score">555</div>
-            </div>
-        </div>
-
-
-        <div class="interns">
-            <div class="intern-image-container">
-                <img src="/home/hez-daniel/Desktop/bok.jpg" alt="" class="intern-image">
-            </div>
-
-            <div class="intern-data">
-                <div class="intern-name">Cynthia Okere</div>
-                <div class="intern-username">@kosiben</div>
-            </div>
-
-            <div class="intern-score">
-                <div class="icon">
-                    <img src="" alt="">
-                </div>
-                <div class="score">555</div>
-            </div>
-        </div>
-
-
-        <div class="interns">
-            <div class="intern-image-container">
-                <img src="/home/hez-daniel/Desktop/bok.jpg" alt="" class="intern-image">
-            </div>
-
-            <div class="intern-data">
-                <div class="intern-name">Cynthia Okere</div>
-                <div class="intern-username">@kosiben</div>
-            </div>
-
-            <div class="intern-score">
-                <div class="icon">
-                    <img src="" alt="">
-                </div>
-                <div class="score">555</div>
-            </div>
-        </div>
+      </div>
     </div>
+</div>
 
-
-        </div>
+<div class="container">
+    <table id="myTable" class="display table table-striped table-hover" >
+        <thead>
+            <tr >
+                <strong>
+                <th></th>
+                <th>Full name</th>
+                <th>Slack username</th>
+                <th>Email</th>
+                <th>Points</th>
+                <th></th>
+                </strong>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr >
+                <strong>
+                <th></th>
+                <th>Full name</th>
+                <th>Slack username</th>
+                <th>Email</th>
+                <th>Points</th>
+                <th></th>
+                </strong>
+            </tr>
+        </tfoot>
+        <tbody>
+             
+            @foreach($interns as $intern)
+                <tr>
+                    <td></td>
+                    <td>{{ $intern->name }}</td>
+                    <td>{{ $intern->slack_username }}</td>
+                    <td>{{ $intern->email }}</td>
+                    <td>{{ $intern->points }}</td>
+                    <td>
+                        <button class="btn btn-info">Share</button>
+                    </td>
+                    <input type="text" class="intern_id" id="intern_id" value="{{ $intern->id}}" hidden>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<script>
+    $(document).ready(function(){       
+        $('#myTable').DataTable();
+    });
+</script>
 
 @endsection
