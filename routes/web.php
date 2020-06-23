@@ -20,3 +20,4 @@ Route::post('/internSave', 'InternsController@save_interns');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
