@@ -26,6 +26,7 @@
 }
 
 .leaderboard-text{
+    margin-top: 20px;
     font-size: 40px;
     font-weight: 600;
     color: white;
@@ -96,6 +97,7 @@ button{
     border-radius: 20px;
     margin-left: 40px;
     color: #737373;
+    font-weight: 600;
 }
 
 button:hover{
@@ -122,7 +124,7 @@ button:hover{
 .intern-image-container{
     border: 1px solid black;
     width: 11%;
-    height: 11%;
+    height: 13vh;
     border-radius: 50%;
 }
 
@@ -147,21 +149,54 @@ button:hover{
 }
 
 .intern-score{
+    /* display: flex; */
     font-weight: 600;
     font-size: 15px;
     margin-left: 30px;
 }
 
-.icon{
 
-}
 
-.score{
 
-}
-
-@media (maxwidth:550px){
+@media (max-width:550px){
   .container{
-    height: 60vh;
-  }  
+    height: 70vh;
+  } 
+  
+  .fav-img{
+    width: 23vw;
+    height: 30vh;
+    
+}
+
+  .track-button{
+   margin-right: 30px;
+    margin-top: 30px;
+    
+
+}
+
+  button{
+    border: 3px solid #737373;
+    height: 40px;
+    width: 20vw;
+    background-color: white;
+    border-radius: 15px;
+    margin-left: 40px;
+    color: #737373;
+    font-weight: 600;
+}
+
+button:hover{
+    background-color: #581b98;
+    color: white;
+}
+
+.intern-image-container{
+    border: 1px solid black;
+    width: 25%;
+    height: 13vh;
+    border-radius: 50%;
+}
+
 }
